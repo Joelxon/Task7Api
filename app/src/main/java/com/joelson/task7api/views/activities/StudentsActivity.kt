@@ -4,16 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.joelson.task7api.R
-import com.joelson.task7api.StudentAdapter
+import com.joelson.task7api.adapter.StudentAdapter
 import com.joelson.task7api.databinding.ActivityStudentsBinding
 import com.joelson.task7api.model.StudentModel
-import com.joelson.task7api.viewModel.MainViewModel
+import com.joelson.task7api.viewModel.StudentViewModel
 
 class StudentsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStudentsBinding
     private lateinit var myStudentAdapter: StudentAdapter
-    private lateinit var viewModel: MainViewModel
+    private lateinit var sviewModel: StudentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class StudentsActivity : AppCompatActivity() {
         myStudentAdapter = StudentAdapter(listOf())
         binding.recyclerStudent.adapter = myStudentAdapter
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        sviewModel = ViewModelProvider(this)[StudentViewModel::class.java]
 
 
         binding.submitStudent.setOnClickListener {
@@ -41,8 +40,8 @@ class StudentsActivity : AppCompatActivity() {
             if (name.isNotEmpty() && studentClass.isNotEmpty()) {
 
                 var myPost = StudentModel(studentClass, name, seat)
-                viewModel.apply {
-                    viewModel.pushPost(myPost)
+                sviewModel.apply {
+                    sviewModel.pushPost(myPost)
 
                 }
 

@@ -4,16 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.joelson.task7api.ItemAdapter
-import com.joelson.task7api.R
+import com.joelson.task7api.adapter.ItemAdapter
 import com.joelson.task7api.databinding.ActivityMainBinding
-import com.joelson.task7api.viewModel.MainViewModel
+import com.joelson.task7api.viewModel.ItemViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var myItemAdapter: ItemAdapter
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: ItemViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         myItemAdapter = ItemAdapter(listOf())
         binding.recyclerMain.adapter = myItemAdapter
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this)[ItemViewModel::class.java]
 
         viewModel.apply {
             getAllItems()

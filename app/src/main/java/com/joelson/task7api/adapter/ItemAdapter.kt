@@ -1,4 +1,4 @@
-package com.joelson.task7api
+package com.joelson.task7api.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

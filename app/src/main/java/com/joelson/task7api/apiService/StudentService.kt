@@ -1,4 +1,4 @@
-package com.joelson.task7api
+package com.joelson.task7api.apiService
 
 import com.joelson.task7api.model.StudentModel
 import retrofit2.http.Body

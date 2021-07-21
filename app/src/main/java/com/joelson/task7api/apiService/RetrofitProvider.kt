@@ -1,4 +1,4 @@
-package com.joelson.task7api
+package com.joelson.task7api.apiService
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
