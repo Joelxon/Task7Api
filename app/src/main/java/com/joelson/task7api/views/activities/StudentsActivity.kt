@@ -37,7 +37,7 @@ class StudentsActivity : AppCompatActivity() {
             var seat: Int = binding.saveSeat.text.toString().toInt()
             var studentClass: String = binding.saveClass.text.toString()
 
-            if (name.isNotEmpty() && studentClass.isNotEmpty()) {
+            if (name.isNotEmpty() && studentClass.isNotEmpty() && seat !=null) {
 
                 var myPost = StudentModel(studentClass, name, seat)
                 sviewModel.apply {
@@ -47,7 +47,7 @@ class StudentsActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Saved Successfully", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "Please fill out the required fields", Toast.LENGTH_LONG)
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG)
                     .show()
             }
         }

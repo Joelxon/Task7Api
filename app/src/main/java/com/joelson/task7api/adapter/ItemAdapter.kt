@@ -11,6 +11,7 @@ class ItemAdapter(var items: List<ItemModel>): RecyclerView.Adapter<ItemAdapter.
     inner class ItemViewHolder(val binding: ItemListBinding): RecyclerView.ViewHolder(binding.root){
 
         fun bind(item: ItemModel){
+            binding.itemId.text = item.id.toString()
             binding.itemName.text = item.name
             binding.itemPrice.text = item.price.toString()
         }
