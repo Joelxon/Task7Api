@@ -24,20 +24,28 @@ class StudentsActivity : AppCompatActivity() {
 
         sviewModel = ViewModelProvider(this)[StudentViewModel::class.java]
 
+        //getStudents
+        sviewModel.apply {
+            getAllStudents()
+            students.observe(this@StudentsActivity, { student ->
+                myStudentAdapter.students = student
+                myStudentAdapter.notifyDataSetChanged()
+            })
+        }
 
+//binding
         binding.submitStudent.setOnClickListener {
             addNewStudent()
         }
 
     }
-
     fun addNewStudent() {
         binding.submitStudent.setOnClickListener {
             var name: String = binding.saveName.text.toString()
             var seat: Int = binding.saveSeat.text.toString().toInt()
             var studentClass: String = binding.saveClass.text.toString()
 
-            if (name.isNotEmpty() && studentClass.isNotEmpty() && seat !=null) {
+            if (name.isNotEmpty() && studentClass.isNotEmpty() && seat != null) {
 
                 var myPost = StudentModel(studentClass, name, seat)
                 sviewModel.apply {
